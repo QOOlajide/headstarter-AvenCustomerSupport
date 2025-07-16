@@ -1,72 +1,76 @@
-#🧠 Aven AI Support Agent#
-This project is an AI-powered support agent that answers user questions about the company Aven using scraped web data, embeddings, and a conversational UI.
+# 🧠 Aven AI Support Agent
 
-🔍 Goal: Build an end-to-end workflow where a user can type a question into a web interface and receive an intelligent answer grounded in Aven’s real documentation.
+An AI-powered support assistant that answers questions about [Aven](https://www.aven.com) using scraped documentation, semantic search, and conversational UI.
 
-⚙️ Tech Stack
-Frontend: React + Next.js + TypeScript
+> 💡 **Goal:** Create a full-stack RAG (Retrieval-Augmented Generation) system that pulls accurate answers from Aven’s official documentation and returns them to users via chat.
 
-Backend API: Python + FastAPI
+---
 
-AI: OpenAI (Embeddings + Chat Completion)
+## ⚙️ Tech Stack
 
-RAG Pipeline: Pinecone (vector DB) + Exa.ai (scraper)
+- 🧑‍💻 **Frontend:** Next.js, React, TypeScript  
+- 🧠 **AI Backend:** Python, OpenAI (Chat + Embeddings)  
+- 🧱 **Vector Database:** Pinecone  
+- 🔍 **Web Scraping:** Exa.ai  
+- 🌐 **API Layer:** FastAPI  
+- 📦 **Other Tools:** dotenv, Playwright, Vercel/Render (deployment in progress)
 
-Other Tools: dotenv, Playwright, Vercel/Render (planned)
+---
 
-✅ What’s Working
-Web scraping with Exa.ai from Aven's public pages (support, education, contact, reviews, etc.)
+## ✅ What’s Working
 
-Chunking and embedding article content with OpenAI
+- ✅ Scraped articles from `aven.com` (support, reviews, contact, education, etc.)
+- ✅ Chunked and embedded article text with `text-embedding-3-small`
+- ✅ Uploaded vector embeddings to Pinecone with metadata
+- ✅ CLI-based interaction allows meaningful back-and-forth with the AI
+- ✅ Frontend chat interface is wired and functional (input works, send button works)
 
-Uploading and retrieving vectors using Pinecone
+---
 
-CLI-based interaction that returns relevant answers from the embedded docs
+## 🧠 What I Learned
 
-Full-stack skeleton with a working frontend UI
+- Prompt engineering for grounded, context-aware responses
+- Managing API authentication and environment variables
+- Connecting OpenAI + Pinecone for question answering
+- Chunking large text into searchable embeddings
+- Debugging frontend/backend integration in real time
+- Importance of not deleting key folders (`/app` 😅)
 
-Functional Send button on the chat interface
+---
 
-🧠 What I Learned
-Prompt engineering for retrieval-augmented generation (RAG)
+## ⚠️ Known Limitations
 
-Structuring and embedding scraped data for semantic search
+- ❌ Chat UI looks basic (needs styling improvements)
+- ❌ Some answers default to “I'm not sure…” even when relevant info exists
+- ❌ Frontend doesn’t fully reflect the backend's AI capabilities
+- ❌ Large local files (like `venv`) caused GitHub push issues
 
-Connecting vector databases with OpenAI for context-aware answers
+---
 
-Managing errors in real-time scraping and embedding pipelines
+## 🔮 Future Plans
 
-Full-stack troubleshooting across API routes and frontend components
+- 🗣 Integrate **Vapi** for voice-based support agent
+- 🎨 Redesign the UI for a more professional, user-friendly look
+- 🧪 Add evaluation framework to test RAG quality
+- 🛠 Refine prompt templates for better contextual understanding
+- 🤖 Experiment with OpenAI function calling for multi-modal workflows
 
-Why meaningful UI design matters for end-user trust
+---
 
-⚠️ Known Limitations
-❌ Frontend chat UI is functional but lacks refined design and fails to display accurate AI responses
+## 🪞 Reflection
 
-❌ Some queries result in fallback responses like “I'm not sure based on the current information” even when relevant data exists
+This project taught me a **lot** — from working with real data and APIs to handling integration issues between services. While I didn’t fully complete the frontend → backend connection, I:
 
-❌ One early mistake — deleting the /app directory — set back the UI implementation
+- Built a working RAG CLI using real documentation
+- Learned how to chunk, embed, and store vectorized data
+- Used Pinecone for search and OpenAI to reason over it
+- Proved that I can troubleshoot across the full stack
 
-🛠️ Future Plans
-Integrate Vapi to support voice-based AI interaction
+> 🛠 This isn’t the end — just the beginning. Stay tuned for a voice-based upgrade!
 
-Refactor frontend for improved UX and styling
+---
 
-Improve context window and embedding quality
+## 🧾 Getting Started (Coming Soon)
 
-Add feedback loop or evaluation set to test RAG accuracy
+---
 
-Switch to OpenAI function calling for dynamic tool usage (e.g., scheduling callbacks)
-
-🎯 Reflection
-This was a challenging but rewarding project. Despite UI hurdles and integration bugs, I gained practical experience in:
-
-Connecting large language models to structured data
-
-Deploying embeddings to Pinecone and using them for similarity search
-
-Building a pipeline from web scraping → embeddings → chat assistant
-
-I’ve now laid the foundation for a smarter support assistant — and I'm excited to rebuild with improved design, voice capabilities, and tighter integration.
-
-🧾 Getting Started (coming soon...)
