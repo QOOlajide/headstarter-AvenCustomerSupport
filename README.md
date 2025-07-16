@@ -1,67 +1,72 @@
-# Next.js Template
+#🧠 Aven AI Support Agent#
+This project is an AI-powered support agent that answers user questions about the company Aven using scraped web data, embeddings, and a conversational UI.
 
-This is a template repository showcasing Next.js Server Actions, React Server Components, and modern data fetching patterns. The project includes a Todo list implementation and examples of API integration with proper loading states and error handling.
+🔍 Goal: Build an end-to-end workflow where a user can type a question into a web interface and receive an intelligent answer grounded in Aven’s real documentation.
 
-## Features
+⚙️ Tech Stack
+Frontend: React + Next.js + TypeScript
 
-- **Todo List**: Server-side data mutations using Next.js Server Actions
-- **Data Fetching Example**: Demonstrates React Suspense and loading states
-- **Modern UI**: Built with Shadcn UI components and Tailwind CSS
-- **Error Handling**: Proper error boundaries and user feedback
-- **Type Safety**: Full TypeScript support
+Backend API: Python + FastAPI
 
-## Tech Stack
+AI: OpenAI (Embeddings + Chat Completion)
 
-- [Next.js](https://nextjs.org) - React framework
-- [Shadcn UI](https://ui.shadcn.com/) - Component library
-- [Tailwind CSS](https://tailwindcss.com) - Styling
-- [TypeScript](https://www.typescriptlang.org/) - Type safety
+RAG Pipeline: Pinecone (vector DB) + Exa.ai (scraper)
 
-## Getting Started
+Other Tools: dotenv, Playwright, Vercel/Render (planned)
 
-1. Clone the repository
-2. Install dependencies:
+✅ What’s Working
+Web scraping with Exa.ai from Aven's public pages (support, education, contact, reviews, etc.)
 
-```bash
-npm install
-# or
-yarn install
-# or
-pnpm install
-```
+Chunking and embedding article content with OpenAI
 
-3. Set up your environment variables in the `.env` file.
+Uploading and retrieving vectors using Pinecone
 
-4. Start the development server:
+CLI-based interaction that returns relevant answers from the embedded docs
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+Full-stack skeleton with a working frontend UI
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the application.
+Functional Send button on the chat interface
 
-## Project Structure
+🧠 What I Learned
+Prompt engineering for retrieval-augmented generation (RAG)
 
-- `app/page.tsx` - Main page with Todo list implementation
-- `app/example/page.tsx` - Data fetching example with loading states
-- `app/actions/*` - Server Actions for data mutations
-- `components/ui/*` - Shadcn UI components
+Structuring and embedding scraped data for semantic search
 
-## Learn More
+Connecting vector databases with OpenAI for context-aware answers
 
-To learn more about the technologies used in this project:
+Managing errors in real-time scraping and embedding pipelines
 
-- [Next.js Documentation](https://nextjs.org/docs) - Next.js features and API
-- [Server Actions](https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions) - Learn about Next.js Server Actions
-- [Shadcn UI Documentation](https://ui.shadcn.com) - Learn about Shadcn UI components
-- [Tailwind CSS Documentation](https://tailwindcss.com/docs) - Learn about Tailwind CSS
+Full-stack troubleshooting across API routes and frontend components
 
-## Deploy on Vercel
+Why meaningful UI design matters for end-user trust
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme).
+⚠️ Known Limitations
+❌ Frontend chat UI is functional but lacks refined design and fails to display accurate AI responses
 
-Check out the [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+❌ Some queries result in fallback responses like “I'm not sure based on the current information” even when relevant data exists
+
+❌ One early mistake — deleting the /app directory — set back the UI implementation
+
+🛠️ Future Plans
+Integrate Vapi to support voice-based AI interaction
+
+Refactor frontend for improved UX and styling
+
+Improve context window and embedding quality
+
+Add feedback loop or evaluation set to test RAG accuracy
+
+Switch to OpenAI function calling for dynamic tool usage (e.g., scheduling callbacks)
+
+🎯 Reflection
+This was a challenging but rewarding project. Despite UI hurdles and integration bugs, I gained practical experience in:
+
+Connecting large language models to structured data
+
+Deploying embeddings to Pinecone and using them for similarity search
+
+Building a pipeline from web scraping → embeddings → chat assistant
+
+I’ve now laid the foundation for a smarter support assistant — and I'm excited to rebuild with improved design, voice capabilities, and tighter integration.
+
+🧾 Getting Started (coming soon...)
