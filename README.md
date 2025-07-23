@@ -12,7 +12,6 @@ An AI-powered support assistant that answers questions about [Aven](https://www.
 - 🧠 **AI Backend:** Python, OpenAI (Chat + Embeddings)  
 - 🧱 **Vector Database:** Pinecone  
 - 🔍 **Web Scraping:** Exa.ai  
-- 🌐 **API Layer:** FastAPI  
 - 📦 **Other Tools:** dotenv, Playwright, Vercel/Render (deployment in progress)
 
 ---
