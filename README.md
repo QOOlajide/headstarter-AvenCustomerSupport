@@ -46,7 +46,7 @@ An AI-powered support assistant that answers questions about Aven using scraped 
 
 ---
 
-## 🔮 Future Plans
+## Future Plans
 
 - 🗣 Integrate **Vapi** for voice-based support agent
 - 🎨 Redesign the UI for a more professional, user-friendly look
