@@ -1,6 +1,6 @@
 # 🧠 Aven AI Support Agent
 
-An AI-powered support assistant that answers questions about [Aven](https://www.aven.com) using scraped documentation, semantic search, and conversational UI.
+An AI-powered support assistant that answers questions about Aven using scraped documentation, semantic search, and conversational UI.
 
 > 💡 **Goal:** Create a full-stack RAG (Retrieval-Augmented Generation) system that pulls accurate answers from Aven’s official documentation and returns them to users via chat.
 
