@@ -1,32 +1,35 @@
-// src/pages/api/ask.ts
-import type { NextApiRequest, NextApiResponse } from 'next'
-import { spawn } from 'child_process'
+/**
+ * /api/ask — Chat endpoint for the Aven AI Support Agent
+ *
+ * Accepts { message: string } and returns { answer: string }
+ * Uses the TypeScript RAG pipeline (OpenAI + Pinecone) directly —
+ * no Python subprocess needed.
+ */
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  const { query } = req.body
+import type { NextApiRequest, NextApiResponse } from "next";
+import { queryAvenRAG } from "@/utils/ragQuery";
 
-  if (!query) {
-    return res.status(400).json({ error: 'Missing query in request body' })
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
+  if (req.method !== "POST") {
+    return res.status(405).json({ error: "Method not allowed" });
   }
 
-  // Run Python script
-  const python = spawn('python3', ['exa_scraper/query_aven.py'])
+  const { message } = req.body;
 
-  let data = ''
-  python.stdout.on('data', (chunk) => {
-    data += chunk.toString()
-  })
+  if (!message || typeof message !== "string") {
+    return res.status(400).json({ error: "Missing or invalid 'message' in request body" });
+  }
 
-  python.stderr.on('data', (err) => {
-    console.error('Python error:', err.toString())
-  })
-
-  python.on('close', () => {
-    // Send response back to frontend
-    res.status(200).json({ result: data.trim() })
-  })
-
-  // Send input to the Python script
-  python.stdin.write(`${query}\n`)
-  python.stdin.end()
+  try {
+    const answer = await queryAvenRAG(message);
+    return res.status(200).json({ answer });
+  } catch (err) {
+    console.error("[/api/ask] RAG query failed:", err);
+    return res
+      .status(500)
+      .json({ error: "Something went wrong. Please try again." });
+  }
 }

@@ -43,7 +43,7 @@ def ask_aven_ai(query):
 
     # 5. Generate a response using OpenAI
     chat_response = openai_client.chat.completions.create(
-        model="gpt-3.5-turbo",
+        model="gpt-5.2",
         messages=[{"role": "user", "content": prompt}]
     )
 
